@@ -1,0 +1,14 @@
+.oc-icon {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0;
+
+    svg {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: currentColor;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+}

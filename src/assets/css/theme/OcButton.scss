@@ -1,0 +1,183 @@
+@import "../mixin/mixin";
+
+
+$oc-currentColor: $oc-button-primary;
+
+.oc-button {
+    // display: inline-block;
+    height: $oc-button-height;
+    padding: 0 20px;
+    border-radius: $oc-button-border-radius;
+    line-height: 1;
+    font-size: $oc-font-size;
+    // overflow: hidden;
+    @extend %border-box;
+
+    // & > span {
+    //     display: inline-block;
+    // }
+    &:active {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, .2);
+        }
+    }
+
+    &.is-default {
+        padding: 0 19px;
+        background: #fff;
+        // border: 1px solid #ccc;
+        $oc-currentColor: #ccc;
+        @include bd-radius($oc-button-border-radius, $oc-currentColor);
+    }
+
+    &.is-primary {
+        background: $oc-button-primary;
+        color: #fff;
+
+        &.is-plain {
+            $oc-currentColor: $oc-button-primary;
+            color: $oc-button-primary;
+        }
+    }
+
+    &.is-warning {
+        background: $oc-warn-color;
+        color: #fff;
+
+        &.is-plain {
+            color: $oc-warn-color;
+            $oc-currentColor: $oc-warn-color;
+            @include bd-radius($oc-button-border-radius, $oc-currentColor);
+        }
+    }
+
+    &.is-danger {
+        background: $oc-danger-color;
+        color: #fff;
+
+        &.is-plain {
+            color: $oc-danger-color;
+            $oc-currentColor: $oc-danger-color;
+            @include bd-radius($oc-button-border-radius, $oc-currentColor);
+        }
+    }
+
+    &.is-plain {
+        padding: 0 19px;
+        background: #fff;
+        // border: 1px solid currentColor;
+        @include bd-radius($oc-button-border-radius, $oc-currentColor);
+    }
+
+    &.is-round {
+        border-radius: $oc-button-height / 2;
+
+        &.is-plain {
+            @include bd-radius($oc-button-height / 2, $oc-currentColor);
+        }
+    }
+
+    &.is-block {
+        width: 100%;
+    }
+
+    &.is-small {
+        height: $oc-button-height-w;
+        padding: 0 8px;
+        font-size: $oc-font-size-w;
+        border-radius: $oc-border-radius-w;
+
+        &.is-plain {
+            @include bd-radius($oc-border-radius-w / 2, $oc-currentColor);
+        }
+
+        &.is-round {
+            &.is-plain {
+                @include bd-radius($oc-button-height-w / 2, $oc-currentColor);
+            }
+        }
+    }
+
+    &.is-big {
+        height: $oc-button-height-s;
+        padding: 0 24px;
+        font-size: $oc-font-size-xs;
+
+        &.is-round {
+            &.is-plain {
+                @include bd-radius($oc-button-height-s / 2, $oc-currentColor);
+            }
+        }
+    }
+
+    &.is-disabled {
+        background: $oc-disabled-color;
+        border: 1px solid $oc-disabled-color;
+        // @include bd-radius(4, #d9d9d9);
+        color: lighten(#d9d9d9, 10);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .oc-icon {
+        display: inline-block;
+        vertical-align: bottom;
+
+        &+div {
+            display: inline-block;
+            margin-left: 8px;
+        }
+    }
+
+    // &.is-position-right {
+    //     .oc-icon {
+    //         & + span {
+    //             margin-left: 0;
+    //             margin-right: 8px;
+    //         }
+    //     }
+    // }
+
+    &.is-loading {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+
+        .oc-icon {
+            animation: OcLoadingRotate 0.8s linear infinite;
+        }
+    }
+
+    @keyframes OcLoadingRotate {
+        to {
+            transform: rotate(360deg) translateZ(10px);
+        }
+    }
+}
+
+@supports (display: inline-flex) {
+    .oc-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        &.is-position-right {
+            flex-direction: row-reverse;
+
+            .oc-icon {
+                &+div {
+                    margin-left: 0;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.oc-scroll {
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+    }
+}
+
+.cube-pullup-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 255, 0, 0.2);
+
+    .before-trigger {
+        padding: 22px 0;
+        min-height: 1em;
+    }
+
+    .after-trigger {
+        padding: 19px 0;
+    }
+}
+
+.cube-pulldown-wrapper {
+    position: absolute;
+    top: -54px;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 54px;
+    justify-content: center;
+    align-items: center;
+    transition: all;
+    background: rgba(255, 0, 0, 0.2);
+
+    .before-trigger {
+        height: 54px;
+        line-height: 54px;
+    }
+
+    .after-trigger {
+        .loading {
+            padding: 8px 0;
+        }
+
+        .cube-pulldown-loaded {
+            padding: 12px 0;
+        }
+    }
+}

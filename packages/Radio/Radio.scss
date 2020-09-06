@@ -1,0 +1,110 @@
+@import "mixin";
+
+$primary-color: rgb(48, 151, 253);
+$primary-color-alpha: rgba(48, 151, 253, 0.15);
+$dark-color: rgb(217, 217, 217);
+
+.oc-radio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oc-radio-inner-icon {
+    flex: none;
+    background-image: url("data:image/svg+xml;charset=utf-8, %3Csvg%20width%3D%2240px%22%20height%3D%2240px%22%20viewBox%3D%220%200%2040%2040%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20stroke%3D%22%23CCCCCC%22%20stroke-width%3D%222%22%20fill-rule%3D%22nonzero%22%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2219%22%3E%3C%2Fcircle%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    &.oc-radio-is-disabled {
+        background-image: url("data:image/svg+xml;charset=utf-8, %3Csvg%20width%3D%2240px%22%20height%3D%2240px%22%20viewBox%3D%220%200%2040%2040%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20stroke%3D%22%23CCCCCC%22%20stroke-width%3D%222%22%20fill-rule%3D%22nonzero%22%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2219%22%3E%3C%2Fcircle%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+    }
+}
+
+.oc-radio-label {
+    flex: 1;
+    font-size: $font-size;
+}
+
+.oc-radio-label-left {
+    flex-direction: row-reverse;
+}
+
+.oc-radio-inner-icon {
+    position: relative;
+    border-radius: 50%;
+    background-size: cover;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        transform: translate(-50%, -50%);
+        background: $primary-color;
+        border-radius: 50%;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    // 选中状态
+    &.oc-radio-is-checked {
+        background-image: url("data:image/svg+xml;charset=utf-8, %3Csvg%20width%3D%2240px%22%20height%3D%2240px%22%20viewBox%3D%220%200%2040%2040%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M20%2C0%20C31.045695%2C0%2040%2C8.954305%2040%2C20%20C40%2C31.045695%2031.045695%2C40%2020%2C40%20C8.954305%2C40%200%2C31.045695%200%2C20%20C0%2C8.954305%208.954305%2C0%2020%2C0%20Z%20M27.7128202%2C12.4022789%20L18.2497436%2C24.3556387%20L13.3279534%2C18.9864131%20C12.7681648%2C18.3757346%2011.8193138%2C18.3344802%2011.2086353%2C18.8942688%20C10.5979568%2C19.4540574%2010.5567024%2C20.4029085%2011.116491%2C21.0135869%20L17.2276021%2C27.6802536%20C17.8515018%2C28.3608714%2018.9363042%2C28.3216342%2019.5094021%2C27.5977211%20L30.0649576%2C14.2643877%20C30.5791648%2C13.6148629%2030.4694681%2C12.6714718%2029.8199433%2C12.1572646%20C29.1704185%2C11.6430574%2028.2270273%2C11.7527541%2027.7128202%2C12.4022789%20Z%22%20id%3D%22%E5%BD%A2%E7%8A%B6%E7%BB%93%E5%90%88%22%20fill%3D%22%233097FD%22%20fill-rule%3D%22nonzero%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+        box-shadow: 0 4px 6px 0 $primary-color-alpha;
+        &.oc-radio-is-disabled {
+            background-image: url("data:image/svg+xml;charset=utf-8, %3Csvg%20width%3D%2240px%22%20height%3D%2240px%22%20viewBox%3D%220%200%2040%2040%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M20%2C0%20C31.045695%2C0%2040%2C8.954305%2040%2C20%20C40%2C31.045695%2031.045695%2C40%2020%2C40%20C8.954305%2C40%200%2C31.045695%200%2C20%20C0%2C8.954305%208.954305%2C0%2020%2C0%20Z%20M27.7128202%2C12.4022789%20L18.2497436%2C24.3556387%20L13.3279534%2C18.9864131%20C12.7681648%2C18.3757346%2011.8193138%2C18.3344802%2011.2086353%2C18.8942688%20C10.5979568%2C19.4540574%2010.5567024%2C20.4029085%2011.116491%2C21.0135869%20L17.2276021%2C27.6802536%20C17.8515018%2C28.3608714%2018.9363042%2C28.3216342%2019.5094021%2C27.5977211%20L30.0649576%2C14.2643877%20C30.5791648%2C13.6148629%2030.4694681%2C12.6714718%2029.8199433%2C12.1572646%20C29.1704185%2C11.6430574%2028.2270273%2C11.7527541%2027.7128202%2C12.4022789%20Z%22%20fill%3D%22%23CCCCCC%22%20fill-rule%3D%22nonzero%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+            background-size: 100% 100%;
+        }
+
+        // 点击动画
+        @keyframes pulse {
+            0% {
+                width: 100%;
+                height: 100%;
+                opacity: .5;
+            }
+            100% {
+                width: 180%;
+                height: 180%;
+                opacity: 0;
+            }
+        }
+
+        &.oc-radio-has-animation:after {
+            animation: pulse .4s ease;
+        }
+
+    }
+
+    &.oc-radio-is-disabled {
+        &:not(.oc-radio-is-checked) {
+            background: #cccccc;
+        }
+        box-shadow: none;
+        &::after {
+            display: none;
+        }
+    }
+}
+
+.oc-radio-label {
+    flex: 1;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+.oc-radio-label-left {
+    flex-direction: row-reverse;
+    > .oc-radio-label {
+        margin-right: 8px;
+    }
+}
+
+.oc-radio-label-right {
+    > .oc-radio-label {
+        margin-left: 8px;
+    }
+}

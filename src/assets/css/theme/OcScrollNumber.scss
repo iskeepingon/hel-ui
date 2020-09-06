@@ -1,0 +1,28 @@
+.oc-scroll-number {
+  display: flex;
+
+  .scroll-number-item {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    width: .62em;
+    height: 1.4em;
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+    transition: transform .5s;
+
+    .scroll-number-line {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+
+    .scroll-number {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+}

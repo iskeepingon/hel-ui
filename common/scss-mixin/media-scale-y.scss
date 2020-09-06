@@ -1,0 +1,22 @@
+@mixin media-scale-y($selector) {
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        #{$selector} {
+            transform: scaleY(0.5);
+        }
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 3) {
+        #{$selector} {
+            transform: scaleY(0.333333);
+        }
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 4) {
+        #{$selector} {
+            transform: scaleY(0.25);
+        }
+    }
+    @media screen and (-webkit-min-device-pixel-ratio: 5) {
+        #{$selector} {
+            transform: scaleY(0.2);
+        }
+    }
+}

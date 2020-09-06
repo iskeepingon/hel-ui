@@ -1,0 +1,90 @@
+// 背景
+$oc-bg-color: #f7f7f7 !default;
+$oc-bg-color-w: #fff !default;
+$oc-bg-color-s: #000 !default;
+
+// 主色
+$oc-main-color: #3097FD !default;
+
+// 辅色
+$oc-sub-color: #ff9f19 !default;
+
+$oc-succse-color: #67C23A !default;
+$oc-warn-color: #E6A23C !default;
+$oc-danger-color: #ff5040 !default;
+
+// active颜色
+$oc-white-tap-color: #f5f5f5 !default;
+$oc-main-tap-color: #2B88E3 !default;
+
+// $oc-active-color: #e1463f !default;
+// 禁用
+$oc-disabled-color: #d9d9d9 !default;
+$oc-disabled-text-color: #ccc !default;
+
+// 分割线
+$oc-border-color: #f0f0f0 !default;
+$oc-border-color-s: #e6e6e6 !default;
+
+// 字体颜色
+$oc-font-color: #222 !default;
+$oc-font-color-w: #999 !default;
+$oc-font-color-m: #666 !default;
+$oc-font-color-s: #222 !default;
+
+
+// 字号
+$oc-font-size: 14PX !default;
+$oc-font-size-w: 12PX !default;
+$oc-font-size-m: 13PX !default;
+$oc-font-size-s: 15PX !default;
+$oc-font-size-xs: 16PX !default;
+$oc-font-size-xxs: 17PX !default;
+$oc-font-size-xxxs: 18PX !default;
+
+$oc-link-color: #666 !default;
+$oc-link-color: #f5f5f5 !default;
+
+// 圆角
+$oc-border-radius: 5px !default;
+$oc-border-radius-s: 10px !default;
+$oc-border-radius-w: 2px !default;
+
+// 遮罩层透明度
+$oc-mask-opacity: .6 !default;
+
+// 弹出层层级
+$oc-mask-zindex: 1000 !default;
+$oc-pop-zindex: 1000 !default;
+
+// button
+$oc-button-height: 44px !default;
+$oc-button-height-s: 48px !default;
+$oc-button-height-w: 24px !default;
+
+// toast
+$oc-toast-padding-top: 60px !default;
+$oc-toast-padding-bottom: 60px !default;
+$oc-toast-border-radius: $oc-border-radius !default;
+$oc-toast-mask-opacity: $oc-mask-opacity !default;
+$oc-toast-zindex: $oc-pop-zindex !default;
+
+// dialog
+$oc-dialog-border-radius: $oc-border-radius !default;
+$oc-dialog-mask-opacity: $oc-mask-opacity !default;
+$oc-dialog-zindex: $oc-pop-zindex !default;
+$oc-dialog-width: 83vw !default;
+
+// botton
+$oc-button-primary: $oc-main-color !default;
+$oc-button-border-radius: $oc-border-radius !default;
+
+// loading
+$oc-loading-padding: 4PX !default;
+$oc-loading-vertical-padding: 8PX !default;
+$oc-loading-text-color: $oc-font-color-m !default;
+
+// switch
+$oc-switch-transition-duration: 300ms !default; // switch切换动画时长
+$oc-switch-bg-color-active: #ff5040 !default;
+$oc-switch-bg-color-inactive: #d9d9d9 !default;

@@ -1,0 +1,76 @@
+@import "../mixin/mixin";
+
+.oc-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oc-checkbox-inner-icon {
+    position: relative;
+    flex: none;
+    background: url("data:image/svg+xml;charset=utf-8, %3Csvg%20width%3D%2240px%22%20height%3D%2240px%22%20viewBox%3D%220%200%2040%2040%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20stroke%3D%22%23CCCCCC%22%20stroke-width%3D%222%22%20fill-rule%3D%22nonzero%22%20x%3D%221%22%20y%3D%221%22%20width%3D%2238%22%20height%3D%2238%22%20rx%3D%224.44444444%22%3E%3C%2Frect%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat center;
+    background-size: 100% 100%;
+    border-radius: 3px;
+    &.oc-checkbox-is-disabled {
+        background: url("data:image/svg+xml;charset=utf-8, %3Csvg%20width%3D%2240px%22%20height%3D%2240px%22%20viewBox%3D%220%200%2040%2040%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M34%2C0%20C37.3137085%2C-6.08718376e-16%2040%2C2.6862915%2040%2C6%20L40%2C34%20C40%2C37.3137085%2037.3137085%2C40%2034%2C40%20L6%2C40%20C2.6862915%2C40%204.05812251e-16%2C37.3137085%200%2C34%20L0%2C6%20C-4.05812251e-16%2C2.6862915%202.6862915%2C6.08718376e-16%206%2C0%20L34%2C0%20Z%20M28.8409106%2C11.2701131%20L17.1530275%2C25.4988404%20L11.0991902%2C18.9793234%20C10.5354861%2C18.3722573%209.58638936%2C18.3371056%208.97932335%2C18.9008098%20C8.37225735%2C19.4645139%208.33710561%2C20.4136106%208.90080976%2C21.0206766%20L16.123032%2C28.7984544%20C16.7412271%2C29.464203%2017.8046459%2C29.4319147%2018.3813116%2C28.7298869%20L31.1590894%2C13.1743314%20C31.6849247%2C12.534184%2031.5922565%2C11.5889682%2030.9521091%2C11.0631328%20C30.3119617%2C10.5372975%2029.366746%2C10.6299657%2028.8409106%2C11.2701131%20Z%22%20fill%3D%22%23CCCCCC%22%20fill-rule%3D%22nonzero%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+        background-size: 100% 100%;
+        &::after {
+            display: none;
+        }
+        &:not(.oc-checkbox-is-checked) {
+            background: #cccccc;
+        }
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        transform: translate(-50%, -50%);
+        background: rgb(48, 151, 253);
+        opacity: 0;
+    }
+}
+
+.oc-checkbox-is-checked {
+    background-image: url("data:image/svg+xml;charset=utf-8, %3Csvg%20width%3D%2240px%22%20height%3D%2240px%22%20viewBox%3D%220%200%2040%2040%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M34%2C0%20C37.3137085%2C-6.08718376e-16%2040%2C2.6862915%2040%2C6%20L40%2C34%20C40%2C37.3137085%2037.3137085%2C40%2034%2C40%20L6%2C40%20C2.6862915%2C40%204.05812251e-16%2C37.3137085%200%2C34%20L0%2C6%20C-4.05812251e-16%2C2.6862915%202.6862915%2C6.08718376e-16%206%2C0%20L34%2C0%20Z%20M28.8409106%2C11.2701131%20L17.1530275%2C25.4988404%20L11.0991902%2C18.9793234%20C10.5354861%2C18.3722573%209.58638936%2C18.3371056%208.97932335%2C18.9008098%20C8.37225735%2C19.4645139%208.33710561%2C20.4136106%208.90080976%2C21.0206766%20L16.123032%2C28.7984544%20C16.7412271%2C29.464203%2017.8046459%2C29.4319147%2018.3813116%2C28.7298869%20L31.1590894%2C13.1743314%20C31.6849247%2C12.534184%2031.5922565%2C11.5889682%2030.9521091%2C11.0631328%20C30.3119617%2C10.5372975%2029.366746%2C10.6299657%2028.8409106%2C11.2701131%20Z%22%20fill%3D%22%233097FD%22%20fill-rule%3D%22nonzero%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-size: 100% 100%;
+    // 点击动画
+    @keyframes pulse {
+        0% {
+            width: 100%;
+            height: 100%;
+            opacity: .5;
+        }
+        100% {
+            width: 170%;
+            height: 170%;
+            opacity: 0;
+        }
+    }
+    &.oc-checkbox-has-animation:after {
+        border-radius: 4px;
+        animation: pulse .4s ease;
+    }
+}
+
+.oc-checkbox-label {
+    flex: 1;
+    font-size: $oc-font-size;
+}
+
+.oc-checkbox-label-left {
+    flex-direction: row-reverse;
+    > .oc-checkbox-label {
+        margin-right: 8px;
+    }
+}
+
+.oc-checkbox-label-right {
+    > .oc-checkbox-label {
+        margin-left: 8px;
+    }
+}

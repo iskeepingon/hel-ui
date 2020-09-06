@@ -1,0 +1,17 @@
+@import "../mixin/mixin";
+
+.oc-cellgroup {
+    margin-bottom: 12px;
+    @extend %border-box;
+    background: #fff;
+    &:only-child,
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    &-border {
+        // border-top: 1px solid #e8e8e8;
+        // border-bottom: 1px solid #e8e8e8;
+        @include bd-tb(#E8E8E8);
+    }
+}

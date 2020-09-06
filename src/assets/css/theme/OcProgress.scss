@@ -1,0 +1,61 @@
+.oc-progress {
+  position: relative;
+  .oc-progress-track {
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .oc-progress-portion {
+    height: 100%;
+    width: 0;
+  }
+  .oc-progress-slot {
+    height: 100%;
+    width: 100%;
+  }
+  .progress-step {
+    height: 100%;
+  }
+  .oc-progress-text {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    text-align: center;
+  }
+  &.oc-progress_circle {
+    display: inline-block;
+    position: relative;
+  }
+  .oc-progress_svg {
+    display: block;
+  }
+  .progress-center-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .progress-current-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -100%);
+    // transition: left 600ms ease, transform 600ms ease;
+    word-break: normal;
+    white-space: nowrap;
+  }
+}

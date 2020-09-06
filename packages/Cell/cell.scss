@@ -1,0 +1,99 @@
+@import "mixin";
+
+.oc-cell {
+    display: block;
+    line-height: 1.5;
+    box-sizing: border-box;
+
+    &.oc-cell-link:active {
+        background: $list-tap-color;
+    }
+
+    &.oc-cell-disabled {
+        .oc-cell-title {
+            color: #c8c8c8;
+        }
+        
+    }
+
+    .oc-cell-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 48px;
+        margin-left: 15px;
+        padding: 13px 15px 13px 0;
+        // border-bottom: 1px solid #E8E8E8;
+        @include bd-bottom($border-color);
+    }
+
+    .oc-cell-icon {
+        margin-right: 8px;
+        font-size: 20px;
+    }
+
+    .oc-cell-left {
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .oc-cell-title {
+        display: block;
+        font-size: $font-size-s;
+        color: $font-color-s;
+    }
+
+    .oc-cell-sub-title {
+        display: block;
+        margin-top: 3px;
+        font-size: $font-size;
+        color: $font-color-w;
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    .oc-cell-right {
+        display: flex;
+        align-items: center;
+        font-size: $font-size;
+        color: $font-color-w;
+    }
+
+    .oc-cell-arrow {
+        display: flex;
+        align-items: center;
+        margin-left: 6px;
+
+        .oc-icon {
+            width: 12px;
+            height: 12px;
+            margin-right: -2px;
+            font-size: $font-size-w;
+        }
+
+        img {
+            height: 14px;
+            margin-left: 10px;
+        }
+    }
+
+    &:last-of-type {
+        .oc-cell-box {
+            border-bottom: 0;
+        }
+    }
+
+    &.is-multiple {
+        .oc-cell-box {
+            padding-bottom: 11px;
+        }
+
+        .oc-cell-icon {
+            margin-top: -3px;
+            margin-bottom: -3px;
+            font-size: 50px;
+        }
+    }
+}

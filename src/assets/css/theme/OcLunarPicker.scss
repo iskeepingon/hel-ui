@@ -1,0 +1,167 @@
+@import "../mixin/mixin";
+
+.oc-lunar-picker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5000;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+// @include media-scale-y(".oc-lunar-border-line");
+
+.oc-lunar-border-line {
+    width: 100%;
+    height: 0;
+    // background: #e8e8e8;
+    @include bd-bottom(#e8e8e8)
+}
+
+.oc-lunar-inner-picker {
+    position: relative;
+    margin: 2vw 0;
+}
+
+.oc-lunar-selected-line {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+
+    .oc-lunar-border-line:nth-child(1) {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .oc-lunar-border-line:nth-child(2) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.oc-lunar-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .3;
+}
+
+.oc-lunar-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+}
+
+.oc-lunar-switch-wrap {
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+
+    .oc-lunar-hide, .oc-lunar-confirm {
+        display: inline-block;
+        width: 16.67vw;
+        text-align: center;
+    }
+
+    .oc-lunar-hide {
+        float: left;
+        color: #aaa;
+    }
+
+    .oc-lunar-confirm {
+        float: right;
+    }
+}
+
+.oc-lunar-wrap {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.oc-lunar-inner-list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: SimHei, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    overflow: hidden;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, .9));
+    }
+}
+
+.oc-lunar-list {
+    li {
+        display: flex;
+        align-items: center;
+        color: #aaa;
+        white-space: nowrap;
+        &.oc-lunar-item-selected {
+            color: $oc-font-color-s;
+        }
+    }
+}
+
+.oc-lunar-switchers {
+    margin-left: 4.3vw;
+    width: 24vw;
+
+    .oc-lunar-switcher {
+        float: left;
+        @extend %border-box;
+        width: 50%;
+        text-align: center;
+    }
+
+    .oc-lunar-switcher-sel {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        font-weight: bold;
+    }
+}
+
+.oc-lunar-list-container {
+    flex: 1;
+    text-align: center;
+    &:first-of-type {
+        margin-left: 4.44vw;
+    }
+
+    &:nth-of-type(2) {
+        ul {
+            padding-left: 3.47vw;
+        }
+    }
+
+    &:nth-of-type(3) {
+        ul {
+            padding-left: 3.47vw;
+        }
+    }
+
+    &:last-of-type {
+        margin-right: 2.78vw;
+        ul {
+            padding-left: 3.47vw;
+        }
+    }
+}

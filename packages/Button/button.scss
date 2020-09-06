@@ -1,0 +1,148 @@
+@import "mixin";
+
+$ocButton-primary: #3097fd;
+
+.oc-button {
+    display: inline-block;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: $border-radius;
+    line-height: 1;
+    font-size: $font-size;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    // & > span {
+    //     display: inline-block;
+    // }
+    &:active {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, .2);
+        }
+    }
+
+    &.is-default {
+        padding: 0 19px;
+        background: #fff;
+        border: 1px solid #ccc;
+        // @include bd-radius(4, #ccc);
+    }
+
+    &.is-primary {
+        background: $ocButton-primary;
+        color: #fff;
+
+        &.is-plain {
+            color: $ocButton-primary;
+        }
+    }
+
+    &.is-warning {
+        background: orange;
+        color: #fff;
+
+        &.is-plain {
+            color: orange;
+        }
+    }
+
+    &.is-danger {
+        background: #ff4040;
+        color: #fff;
+
+        &.is-plain {
+            color: #ff4040;
+        }
+    }
+
+    &.is-plain {
+        padding: 0 19px;
+        background: #fff;
+        border: 1px solid currentColor;
+        // @include bd-radius(4, currentColor);
+    }
+
+    &.is-block {
+        width: 100%;
+    }
+
+    &.is-small {
+        height: 24px;
+        padding: 0 8px;
+        font-size: $font-size-w;
+    }
+
+    &.is-big {
+        height: 48px;
+        padding: 0 24px;
+        font-size: $font-size-xs;
+    }
+
+    &.is-disabled {
+        background: #d9d9d9;
+        border: 1px solid #d9d9d9;
+        // @include bd-radius(4, #d9d9d9);
+        color: lighten(#d9d9d9, 10);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .oc-icon {
+        display: inline-block;
+        vertical-align: bottom;
+        & + span {
+            display: inline-block;
+            margin-left: 8px;
+        }
+    }
+    
+    // &.is-position-right {
+    //     .oc-icon {
+    //         & + span {
+    //             margin-left: 0;
+    //             margin-right: 8px;
+    //         }
+    //     }
+    // }
+
+    &.is-loading {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+
+        .oc-icon {
+            animation: OcLoadingRotate 0.8s linear infinite;
+        }
+    }
+
+    @keyframes OcLoadingRotate {
+        to {
+            transform: rotate(360deg) translateZ(10px);
+        }
+    }
+}
+
+@supports (display: inline-flex) {
+    .oc-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        &.is-position-right {
+            flex-direction: row-reverse;
+            .oc-icon {
+                & + span {
+                    margin-left: 0;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}

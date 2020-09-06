@@ -1,0 +1,134 @@
+@import "../mixin/mixin";
+
+$oc-warning-color: #ff5040;
+
+.oc-cell {
+    .oc-input {
+        margin: -13px 0 -13px -15px;
+    }
+}
+
+.oc-input {
+    position: relative;
+    @extend %border-box;
+    padding: 10px 15px;
+    line-height: 24px;
+    font-size: $oc-font-size;
+    background: #fff;
+    &.oc-input-on-error {
+        input, textarea {
+            color: $oc-warning-color;
+        }
+    }
+    &.oc-input-is-clickable {
+        &:active {
+            background-color: #f2f3f5;
+        }
+    }
+    input, textarea {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+        line-height: 24px;
+        font-size: $oc-font-size;
+        color: $oc-font-color-s;
+        background: transparent;
+        outline: none;
+        resize: none;
+        &::placeholder {
+            color: $oc-font-color-w;
+        }
+    }
+    &.oc-input-is-required {
+        &::before {
+            content: "*";
+            position: absolute;
+            left: 6px;
+            font-size: $oc-font-size;
+            color: $oc-warning-color;
+        }
+    }
+    &.oc-input-with-border {
+        // @include bd-bottom(#ebedf0);
+        // &::after {
+        //     content: "";
+        //     position: absolute;
+        //     right: 0;
+        //     bottom: 0;
+        //     left: 15px;
+        //     height: 1px;
+        //     background: #ebedf0;
+        // }
+    }
+}
+
+.oc-input-main {
+    display: flex;
+    flex: 1;
+}
+
+.oc-input-label {
+    flex: none;
+    width: 90px;
+}
+
+.oc-input-value {
+    display: flex;
+    flex: 1;
+}
+
+.oc-input-input-wrapper {
+    width: 100%;
+}
+
+.oc-input-input {
+    width: 100%;
+}
+
+.oc-input-clear, .oc-input-btn, .oc-input-icon {
+    display: flex;
+    flex: none;
+    align-items: center;
+}
+
+.oc-input-btn-clear {
+    position: relative;
+    display: block;
+    margin: 0 4px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #aaa;
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 3px;
+        width: 9px;
+        height: 1px;
+        background: white;
+    }
+    &::before {
+        transform: rotate(-45deg);
+    }
+    &::after {
+        transform: rotate(45deg);
+    }
+}
+
+.oc-input-word-limit {
+    margin-top: 3px;
+    height: 16px;
+    line-height: 16px;
+    text-align: right;
+    font-size: $oc-font-size-w;
+    color: $oc-font-color-w;
+}
+
+.oc-input-error-message {
+    line-height: 16px;
+    font-size: $oc-font-size;
+    color: $oc-warning-color;
+}
+

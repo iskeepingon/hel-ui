@@ -1,0 +1,143 @@
+@charset "utf-8";
+/*CSS Reset*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+
+@import "mixin/mixin";
+
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: $oc-bg-color;
+    line-height: 1.5;
+    color: $oc-font-color;
+    user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: normal;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+li {
+    list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    border: 0;
+    background: none;
+    -webkit-appearance: none;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[onclick] {
+    outline: 0 none;
+}
+
+a {
+    -webkit-touch-callout: none;
+    text-decoration: none;
+    color: $oc-link-color;
+    outline: 0;
+}
+
+b {
+    font-weight: normal;
+}
+
+em,
+i {
+    font-style: normal;
+
+}
+
+strong {
+    font-weight: normal;
+}
+
+s {
+    text-decoration: none;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+::-webkit-input-placeholder {
+    color: #d7d7d7;
+}
+
+// 去除number类型的上下箭头
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+img {
+    content: normal !important;
+}
+
+body {
+    word-break: break-all;
+}

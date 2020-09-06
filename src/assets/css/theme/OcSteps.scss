@@ -1,0 +1,7 @@
+.oc-steps {
+  display: flex;
+  &.oc-steps_vertical {
+    height: 100%;
+    flex-flow: column;
+  }
+}

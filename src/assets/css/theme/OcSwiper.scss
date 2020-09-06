@@ -1,0 +1,41 @@
+
+.oc-swiper {
+    overflow: hidden;
+}
+.oc-swiper-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.oc-swiper-item, .oc-swiper-item-copy {
+    width: 100%;
+    height: 100%;
+    flex: none;
+}
+.oc-swiper-pagination {
+    position: relative;
+    height: 0;
+}
+.oc-swiper-pagination-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -16px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.oc-swiper-pagination-item {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgba(#fff, 0.6);
+    margin: 0 4px;
+    transition: all .1s;
+    &.active {
+        width: 8px;
+        background-color: #fff;
+    }
+}

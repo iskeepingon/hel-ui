@@ -1,0 +1,122 @@
+@import "mixin";
+
+// @import "../../common/scss-mixin/media-scale-y";
+
+// .oc-collapse-item {
+//     position: relative;
+//     &::after {
+//         content: "";
+//         position: absolute;
+//         right: 0;
+//         bottom: 0;
+//         left: 0;
+//         height: 1px;
+//         background: #ebedf0;
+//     }
+// }
+
+// .oc-collapse-item-disabled {
+//     .oc-collapse-item-topic {
+//         color: #c8c8c8;
+//     }
+// }
+
+// .oc-collapse-item-head {
+//     position: relative;
+//     box-sizing: border-box;
+//     display: flex;
+//     align-items: center;
+//     padding: 10px 16px;
+//     width: 100%;
+//     overflow: hidden;
+//     &.oc-collapse-opened {
+//         &::after {
+//             content: "";
+//             position: absolute;
+//             right: 0;
+//             bottom: 0;
+//             left: 16px;
+//             height: 1px;
+//             background: #ebedf0;
+//         }
+//     }
+// }
+
+// @include media-scale-y(".oc-collapse-item-head.oc-collapse-opened::after");
+// @include media-scale-y(".oc-collapse-item::after");
+
+// .oc-collapse-item-topic {
+//     flex-grow: 1;
+//     font-size: 14px;
+//     color: #222222;
+// }
+
+// .oc-collapse-item-label {
+//     flex-grow: 1;
+//     padding-right: 4px;
+//     text-align: right;
+//     font-size: 14px;
+//     color: #999;
+// }
+
+// .oc-cell-arrow {
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex: none;
+//     width: 20px;
+//     height: 20px;
+//     &::after {
+//         content: "";
+//         width: 7px;
+//         height: 7px;
+//         border-width: 0 0 1px 1px;
+//         border-style: solid;
+//         border-color: #666;
+//         transition: transform .2s linear;
+//         transform: rotate(-45deg) translateY(-2px);
+//     }
+//     &.oc-collapse-opened {
+//         &::after {
+//             transform: rotate(135deg) translateY(-2px);
+//         }
+//     }
+// }
+
+.oc-collapse-item {
+    &.oc-cell {
+        .oc-cell-box {
+            margin-left: 0;
+            padding-left: 16px;
+            border-top: none;
+            @include bd-top(#E8E8E8);
+        }
+        .oc-cell-arrow {
+            transition: transform .2s linear;
+            transform: rotate(90deg);
+        }
+    }
+    &.oc-collapse-opened {
+        .oc-cell-arrow {
+            transform: rotate(-90deg);
+        }
+    }
+    
+}
+
+.oc-collapse-item-inner {
+    margin-left: 16px;
+    @include bd-top(#E8E8E8);
+    overflow: hidden;
+    transition: height .3s ease-in-out;
+    will-change: height;
+}
+
+.oc-collapse-item-content {
+    padding: 8px 16px 8px 0;
+    color: $font-color-m;
+    font-size: $font-size;
+    line-height: 1.5;
+    background-color: white;
+}

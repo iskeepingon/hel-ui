@@ -1,0 +1,162 @@
+@import "var";
+// @import "mq";
+
+@function px2vw($px) {
+    @return ($px / $uiWidth) * 100vw;
+}
+
+%border-box {
+    box-sizing: border-box;
+    & * {
+        box-sizing: inherit;
+    }
+    
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+
+%cf {
+
+    &::before,
+    &::after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+// 模块级的层级
+@mixin z10 {
+    z-index: 10;
+}
+
+@mixin z100 {
+    z-index: 100;
+}
+
+@mixin z1000 {
+    z-index: 1000;
+}
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@mixin border1px($borderTop: 1, $borderRight: 1, $borderBottom: 1, $borderLeft: 1, $color: $border-color, $borderRadius: 0, $colorOpacity: 1) {
+    $borderTop: strip-unit($borderTop);
+    $borderRight: strip-unit($borderRight);
+    $borderBottom: strip-unit($borderBottom);
+    $borderLeft: strip-unit($borderLeft);
+    $borderRadius: strip-unit($borderRadius);
+
+    // 防御传currentColor关键字
+    @if $color == currentColor {
+        $color: $border-color;
+    }
+
+    border-style: solid;
+    border-width: #{$borderTop}PX #{$borderRight}PX #{$borderBottom}PX #{$borderLeft}PX;
+    border-color: rgba($color, $colorOpacity);
+    border-radius: $borderRadius + PX;
+    
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        // border-image裁剪宽度
+        $sliceWidth: 1; 
+
+        border-color: transparent;
+        @if $borderRadius > 0 {
+            $borderTop: $borderRadius;
+            $borderRight: $borderRadius;
+            $borderBottom: $borderRadius;
+            $borderLeft: $borderRadius;
+            
+            $sliceWidth: $borderRadius;
+
+            border-width: #{$borderTop}PX #{$borderRight}PX #{$borderBottom}PX #{$borderLeft}PX;
+            border-radius: #{$borderRadius}PX;
+        }
+
+        // 缩放因子，因svg画rect描边不完美，所以裁剪最小宽度为3
+        $SCALE_FACTOR: 3;
+
+        $minSvgWh: $sliceWidth * $SCALE_FACTOR * 2  + 1; // svg宽、高
+
+        $bdT: if($borderTop == 0, $SCALE_FACTOR, $borderTop * $SCALE_FACTOR);
+        $bdR: if($borderRight == 0, $SCALE_FACTOR, $borderRight * $SCALE_FACTOR);
+        $bdB: if($borderBottom == 0, $SCALE_FACTOR, $borderBottom * $SCALE_FACTOR);
+        $bdL: if($borderLeft == 0, $SCALE_FACTOR, $borderLeft * $SCALE_FACTOR);
+
+        // 解决svg #转义问题
+        $colorR: red($color);
+        $colorG: green($color);
+        $colorB: blue($color);
+
+        border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{$minSvgWh} #{$minSvgWh}' width='#{$minSvgWh}px' height='#{$minSvgWh}px'><rect x='1' y='1' stroke-width='1' width='#{$minSvgWh - 2}' height='#{$minSvgWh - 2}' rx='#{$borderRadius * $SCALE_FACTOR}' ry='#{$borderRadius * $SCALE_FACTOR}' style='stroke: rgba(#{$colorR, $colorG, $colorB, $colorOpacity})' fill='transparent' /></svg>") $bdT $bdR $bdB $bdL stretch;
+
+
+        & > :only-of-type {
+            @if $borderRadius > 1 {
+                margin: #{-($borderRadius - 1)}PX;
+            }
+        }
+
+        @supports (-webkit-overflow-scrolling: touch) {
+            // iOS支持.5
+            border-width: #{$borderTop / 2}PX  #{$borderRight / 2}PX  #{$borderBottom / 2}PX #{$borderLeft / 2}PX;
+            border-color: $color;
+            border-image: none;
+        }
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 3) {
+        @supports (-webkit-overflow-scrolling: touch) {
+            // iOS支持.3
+            border-width: #{$borderTop / 3}PX #{$borderRight / 3}PX #{$borderBottom / 3}PX #{$borderLeft / 3}PX;
+        }
+    }
+}
+
+// border-top
+@mixin bd-top($color: $border-color) {
+    @include border1px(1, 0, 0, 0, $color);
+}
+
+// border-right
+@mixin bd-right($color: $border-color) {
+    @include border1px(0, 1, 0, 0, $color);
+}
+
+// border-bottom
+@mixin bd-bottom($color: $border-color) {
+    @include border1px(0, 0, 1, 0, $color);
+}
+
+// border-left
+@mixin bd-left($color: $border-color) {
+    @include border1px(0, 0, 0, 1, $color);
+}
+
+// border-top&border-bottom
+@mixin bd-tb($color: $border-color) {
+    @include border1px(1, 0, 1, 0, $color);
+}
+
+// border-radius
+@mixin bd-radius($border-radius: 4, $color: $border-color) {
+    @include border1px(1, 1, 1, 1, $color, $border-radius);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.4s ease-in;
+}
+
+.fade-enter,
+.fade-leave-active {
+    opacity: 0;
+}

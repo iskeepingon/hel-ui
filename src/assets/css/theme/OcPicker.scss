@@ -1,0 +1,142 @@
+@import "../mixin/mixin";
+
+.oc-picker-border-line {
+    width: 100%;
+    height: 1px;
+    background: #e8e8e8;
+}
+
+.oc-picker-inner {
+    position: relative;
+    margin: 2vw 0;
+}
+
+.oc-picker-selected-line {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    @include bd-tb(#e5e5e5);
+}
+
+.oc-picker-container {
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+}
+
+.oc-picker-switch-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    font-size: 18px;
+    @include bd-bottom(#e5e5e5);
+}
+
+.oc-picker-btn-wrapper {
+    flex: none;
+}
+
+.oc-picker-text-grow {
+    flex: 1;
+}
+
+.oc-picker-cancel, .oc-picker-confirm {
+    display: inline-block;
+    padding: 0 14px;
+    //width: 16.67vw;
+    //text-align: center;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.oc-picker-cancel {
+    color: #aaa;
+}
+
+.oc-picker-title {
+    text-align: center;
+    font-size: 17px;
+    color: $oc-font-color-s;
+}
+
+.oc-picker-confirm {
+    color: rgb(48, 151, 253);
+}
+
+.oc-picker-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.oc-picker-list-container {
+    flex: 1;
+    text-align: center;
+}
+
+.oc-picker-inner-list-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: SimHei, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    overflow: hidden;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &.oc-picker-column-mask {
+        &:after {
+            background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, .9));
+        }
+    }
+}
+
+.oc-picker-list {
+    &.oc-picker-list-item-center {
+        >.oc-picker-list-item {
+            justify-content: center;
+        }
+    }
+}
+
+.oc-picker-list-item {
+    display: flex;
+    align-items: center;
+    color: #aaa;
+    white-space: nowrap;
+    &.oc-picker-item-selected {
+        color: $oc-font-color-s;
+    }
+}
+
+.oc-picker-upper-line {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: $oc-font-color-s;
+}
+
+.oc-picker-upper-line-item {
+    position: relative;
+    box-sizing: content-box;
+    margin-right: 10px;
+    padding: 0 2px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.oc-picker-upper-selected {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-color: #3097fd;
+}

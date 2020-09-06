@@ -1,0 +1,38 @@
+@import "../mixin/mixin";
+
+.oc-collapse-item {
+    &.oc-cell {
+        .oc-cell-box {
+            margin-left: 0;
+            padding-left: 16px;
+            border-top: none;
+            @include bd-top(#E8E8E8);
+        }
+        .oc-cell-arrow {
+            transition: transform .2s linear;
+            transform: rotate(90deg);
+        }
+    }
+    &.oc-collapse-opened {
+        .oc-cell-arrow {
+            transform: rotate(-90deg);
+        }
+    }
+
+}
+
+.oc-collapse-item-inner {
+    margin-left: 16px;
+    @include bd-top(#E8E8E8);
+    overflow: hidden;
+    transition: height .3s ease-in-out;
+    will-change: height;
+}
+
+.oc-collapse-item-content {
+    padding: 8px 16px 8px 0;
+    color: $oc-font-color-m;
+    font-size: $oc-font-size;
+    line-height: 1.5;
+    background-color: white;
+}

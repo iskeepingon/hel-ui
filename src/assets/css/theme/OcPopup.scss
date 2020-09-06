@@ -1,0 +1,237 @@
+@import "../mixin/mixin";
+@import "./OcOverlay.scss";
+
+.oc-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $oc-pop-zindex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  @extend %border-box;
+
+  &-top {
+    align-items: flex-start;
+  }
+
+  &-right {
+    justify-content: flex-end;
+  }
+
+  &-bottom {
+    align-items: flex-end;
+  }
+
+  &-left {
+    justify-content: flex-start;
+  }
+
+  // &-inner {
+  // }
+
+  &-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    line-height: 0;
+    font-size: 16px;
+  }
+}
+
+// .bounceInRight-enter-active,
+// .bounceInRight-leave-active {
+//     transition: transform 0.4s ease-in;
+// }
+
+// .bounceInRight-enter,
+// .bounceInRight-leave-active {
+//     transform: translateX(101%);
+// }
+.ocBounceIn-enter-active {
+  animation: OcBounceIn .2s forwards;
+}
+
+.ocBounceIn-leave-active {
+  // opacity: 0;
+  animation: OcBounceOut .4s forwards;
+}
+
+.ocBounceInTop-enter-active {
+  animation: OcBounceInDown .4s forwards;
+}
+
+.ocBounceInTop-leave-active {
+  animation: OcBounceOutDown .4s forwards;
+}
+
+.ocBounceInRight-enter-active {
+  animation: OcBounceInRight .4s forwards;
+}
+
+.ocBounceInRight-leave-active {
+  animation: OcBounceOutRight .4s forwards;
+}
+
+.ocBounceInBottom-enter-active {
+  animation: OcBounceInUp .4s forwards;
+}
+
+.ocBounceInBottom-leave-active {
+  animation: OcBounceOutUp .4s forwards;
+}
+
+.ocBounceInLeft-enter-active {
+  animation: OcBounceInLeft .4s forwards;
+}
+
+.ocBounceInLeft-leave-active {
+  animation: OcBounceOutLeft .4s forwards;
+}
+
+@keyframes OcBounceIn {
+
+  // 0%,
+  // 20%,
+  // 40%,
+  // 60%,
+  // 80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  // 20% {
+  //   transform: scale3d(1.1, 1.1, 1.1);
+  // }
+  // 40% {
+  //   transform: scale3d(0.9, 0.9, 0.9);
+  // }
+  // 60% {
+  //   opacity: 1;
+  //   transform: scale3d(1.03, 1.03, 1.03);
+  // }
+  // 80% {
+  //   transform: scale3d(0.97, 0.97, 0.97);
+  // }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes OcBounceOut {
+  20% {
+    opacity: 0;
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  // 50%,
+  // 55% {
+  //   opacity: 1;
+  //   transform: scale3d(1.1, 1.1, 1.1);
+  // }
+
+  to {
+    opacity: 0;
+    // transform: scale3d(0.3, 0.3, 0.3);
+  }
+}
+
+@keyframes OcBounceInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes OcBounceOutDown {
+  20% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+
+@keyframes OcBounceInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes OcBounceOutRight {
+  20% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+@keyframes OcBounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes OcBounceOutLeft {
+  20% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(-2000px, 0, 0);
+  }
+}
+
+@keyframes OcBounceInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 3000px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes OcBounceOutUp {
+  20% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 2000px, 0);
+  }
+}

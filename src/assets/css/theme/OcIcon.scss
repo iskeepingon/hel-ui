@@ -1,0 +1,17 @@
+@import "../mixin/mixin";
+
+.oc-icon {
+    display: inline-block;
+    line-height: 0;
+    @extend %border-box;
+    svg {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: currentColor;
+        overflow: hidden;
+    }
+    img {
+        max-width: 100%;
+    }
+}

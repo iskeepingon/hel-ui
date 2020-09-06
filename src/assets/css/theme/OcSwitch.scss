@@ -1,0 +1,40 @@
+@import "../mixin/mixin";
+
+.oc-switch {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    @extend %border-box;
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    transition: all $oc-switch-transition-duration;
+    cursor: pointer;
+    &.oc-switch-disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        background-color: #fff;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: all $oc-switch-transition-duration;
+    }
+    &-active {
+        background: $oc-switch-bg-color-active;
+        &::after {
+            left: 100%;
+            margin-left: -22px;
+        }
+    }
+    &-inactive {
+        background: $oc-switch-bg-color-inactive;
+        &::after {
+            left: 2px;
+        }
+    }
+}

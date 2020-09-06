@@ -1,0 +1,115 @@
+@import "../mixin/mixin";
+
+.oc-notice-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    svg {
+        vertical-align: top;
+    }
+}
+
+.oc-notice-bar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+}
+
+.oc-notice-bar-icon {
+    flex: none;
+    width: 16px;
+    height: 18px;
+}
+
+.oc-notice-bar-arrow {
+    flex: none;
+    width: 6px;
+    height: 21px;
+}
+
+.oc-notice-bar-list-wrapper, .oc-notice-bar-horizon-wrapper {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 5px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.oc-notice-bar-list-wrapper {
+    font-size: $oc-font-size-w;
+    height: 32px;
+    line-height: 32px;
+    .oc-notice-bar-list-item {
+        display: block;
+    }
+}
+
+.oc-notice-bar-list {
+    font-size: $oc-font-size-w;
+    line-height: 32px;
+}
+
+.oc-notice-bar-list-item {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    > b {
+        font-weight: bold;
+    }
+
+    > i {
+        font-style: italic;
+    }
+}
+
+.oc-notice-bar-text-list {
+    display: inline-block;
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px;
+    white-space: nowrap;
+
+    &.oc-notice-bar-quiver {
+        transition: transform linear;
+    }
+
+    @keyframes notice-bar-horizon-ani {
+        to {
+            transform: translate3d(-100%, 0, 0);
+        }
+    }
+    @keyframes notice-bar-horizon-infinite-ani {
+        to {
+            transform: translate3d(-100%, 0, 0);
+        }
+    }
+
+    &.oc-notice-bar-list-ani {
+        animation-name: notice-bar-horizon-ani;
+        animation-timing-function: linear;
+        animation-play-state: running;
+        animation-fill-mode: both;
+    }
+
+    &.oc-notice-bar-list-ani-infinite {
+        animation-name: notice-bar-horizon-infinite-ani;
+        animation-timing-function: linear;
+        animation-play-state: running;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+    }
+
+    > .oc-notice-bar-list-item {
+        display: inline-block;
+        vertical-align: top;
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}
